@@ -1,0 +1,144 @@
+Question 2 - 
+
+  Write the queries for the following tasks - 
+
+1.Create a database name - “Football”.
+
+SQL> create user Football identified by news;
+SQL> grant create session to system;
+
+Grant succeeded.
+
+SQL> grant create table to system;
+
+Grant succeeded.
+
+2.Create a table name - “Football Venue”.
+
+
+SQL> create table Football_Venue
+  2  (
+  3  venue_id number(10),
+  4  venue_name varchar2(15),
+  5  city_id number(10),
+  6  capacity number(10)
+  7  );
+
+Table created.
+
+
+3.Insert 10 details in the “Football Venue” table  - 
+
+
+SQL> /
+Enter value for a: 20001
+Enter value for b: 'France'
+Enter value for c: 1001
+Enter value for d: 23243
+old   1: insert into Football_Venue values(&a,&b,&c,&d)
+new   1: insert into Football_Venue values(20001,'France',1001,23243)
+
+1 row created.
+
+SQL> /
+Enter value for a: 20002
+Enter value for b: 'Australia'
+Enter value for c: 1002
+Enter value for d: 22333
+old   1: insert into Football_Venue values(&a,&b,&c,&d)
+new   1: insert into Football_Venue values(20002,'Australia',1002,22333)
+
+1 row created.
+
+SQL> /
+Enter value for a: 20003
+Enter value for b: 'Australia'
+Enter value for c: 1003
+Enter value for d: 42343
+old   1: insert into Football_Venue values(&a,&b,&c,&d)
+new   1: insert into Football_Venue values(20003,'Australia',1003,42343)
+
+1 row created.
+
+SQL> /
+Enter value for a: 20004
+Enter value for b: 'india'
+Enter value for c: 1004
+Enter value for d: 23423
+old   1: insert into Football_Venue values(&a,&b,&c,&d)
+new   1: insert into Football_Venue values(20004,'india',1004,23423)
+
+1 row created.
+
+SQL> /
+Enter value for a: 20005
+Enter value for b: 'italy'
+Enter value for c: 1005
+Enter value for d: 43343
+old   1: insert into Football_Venue values(&a,&b,&c,&d)
+new   1: insert into Football_Venue values(20005,'italy',1005,43343)
+
+1 row created.
+
+SQL> /
+Enter value for a: 20006
+Enter value for b: 'korea'
+Enter value for c: 1006
+Enter value for d: 34332
+old   1: insert into Football_Venue values(&a,&b,&c,&d)
+new   1: insert into Football_Venue values(20006,'korea',1006,34332)
+
+1 row created.
+
+SQL> /
+Enter value for a: 20007
+Enter value for b: 'canada'
+Enter value for c: 1007
+Enter value for d: 23423
+old   1: insert into Football_Venue values(&a,&b,&c,&d)
+new   1: insert into Football_Venue values(20007,'canada',1007,23423)
+
+1 row created.
+
+SQL> /
+Enter value for a: 20008
+Enter value for b: 'Australia'
+Enter value for c: 1008
+Enter value for d: 234233
+old   1: insert into Football_Venue values(&a,&b,&c,&d)
+new   1: insert into Football_Venue values(20008,'Australia',1008,234233)
+
+1 row created.
+
+SQL> /
+Enter value for a: 20009
+Enter value for b: 'China'
+Enter value for c: 1009
+Enter value for d: 32423
+old   1: insert into Football_Venue values(&a,&b,&c,&d)
+new   1: insert into Football_Venue values(20009,'China',1009,32423)
+
+1 row created.
+
+SQL> /
+Enter value for a: 20010
+Enter value for b: 'Vietnam'
+Enter value for c: 1010
+Enter value for d: 34234
+old   1: insert into Football_Venue values(&a,&b,&c,&d)
+new   1: insert into Football_Venue values(20010,'Vietnam',1010,34234)
+
+1 row created.
+
+
+4. Count the number of venues of the football world cup
+
+SQL>  select count(*) from Football_Venue;
+
+5. List all the venue names and capacities in the format of “Location” and “Volume”.
+
+SQL> select venue_name as Location, capacity as Volume from Football_Venue;
+
+6. Delete all the details where venue_name is equal to “Australia”
+
+SQL> delete from Football_Venue where venue_name = 'Australia';

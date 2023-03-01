@@ -1,0 +1,183 @@
+Question 1 - 
+
+Write the queries for the following tasks - 
+
+1.Create a database name - “Employee”.
+
+SQL> create user Employee identified by admin;
+
+User created.
+
+SQL> grant create session to Employee;
+
+Grant succeeded.
+
+SQL> grant create table to Employee;
+
+Grant succeeded.
+
+2.Create a table name - “Employee Details”.
+
+SQL> create table Employee_Details
+  2  (
+  3  Emp_id number(20),
+  4  Emp_name varchar2(50),
+  5  Job_name varchar2(20),
+  6  Manager_id number(10),
+  7  Hire_date date,
+  8  Salary number(8),
+  9  Dep_id number(4)
+ 10  );
+     Table created.
+
+
+3.Insert 10 details in the “Employee Details” table  - 
+
+SQL> insert into Employee_Details values(&a,&b,&c,&d,&e,&f,&g);
+Enter value for a: 1001
+Enter value for b: 'Raj'
+Enter value for c: 'Manager'
+Enter value for d: 100
+Enter value for e: '11-mar-02'
+Enter value for f: 200000
+Enter value for g: 012
+old   1: insert into Employee_Details values(&a,&b,&c,&d,&e,&f,&g)
+new   1: insert into Employee_Details values(1001,'Raj','Manager',100,'11-mar-02',200000,012)
+
+1 row created.
+
+SQL> /
+Enter value for a: 1002
+Enter value for b: 'Sujatha'
+Enter value for c: 'Developer'
+Enter value for d: 101
+Enter value for e: '09-apr-89'
+Enter value for f: 300000
+Enter value for g: 013
+old   1: insert into Employee_Details values(&a,&b,&c,&d,&e,&f,&g)
+new   1: insert into Employee_Details values(1002,'Sujatha','Developer',101,'09-apr-89',300000,013)
+
+1 row created.
+
+SQL> /
+Enter value for a: 1003
+Enter value for b: 'John'
+Enter value for c: 'Tester'
+Enter value for d: 102
+Enter value for e: '25-feb-01'
+Enter value for f: 400000
+Enter value for g: 014
+old   1: insert into Employee_Details values(&a,&b,&c,&d,&e,&f,&g)
+new   1: insert into Employee_Details values(1003,'John','Tester',102,'25-feb-01',400000,014)
+
+1 row created.
+
+SQL> /
+Enter value for a: 1004
+Enter value for b: 'Mike'
+Enter value for c: 'Tester'
+Enter value for d: 103
+Enter value for e: '12-feb-04'
+Enter value for f: 233434
+Enter value for g: 015
+old   1: insert into Employee_Details values(&a,&b,&c,&d,&e,&f,&g)
+new   1: insert into Employee_Details values(1004,'Mike','Tester',103,'12-feb-04',233434,015)
+
+1 row created.
+
+SQL> insert into Employee_Details values(&a,&b,&c,&d,&e,&f,&g);
+Enter value for a: 1005
+Enter value for b: 'Johny'
+Enter value for c: 'Manager'
+Enter value for d: 104
+Enter value for e: '12-oct-01'
+Enter value for f: 234324
+Enter value for g: 016
+old   1: insert into Employee_Details values(&a,&b,&c,&d,&e,&f,&g)
+new   1: insert into Employee_Details values(1005,'Johny','manager',104,'12-oct-01',234324,016)
+
+1 row created.
+
+SQL> /
+Enter value for a: 1006
+Enter value for b: 'Luke'
+Enter value for c: 'Developer'
+Enter value for d: 105
+Enter value for e: '12-jan-03'
+Enter value for f: 453453
+Enter value for g: 017
+old   1: insert into Employee_Details values(&a,&b,&c,&d,&e,&f,&g)
+new   1: insert into Employee_Details values(1006,'Luke','developer',105,'12-jan-03',453453,017)
+
+1 row created.
+
+SQL> /
+Enter value for a: 1007
+Enter value for b: 'Mark'
+Enter value for c: 'Analyst'
+Enter value for d: 106
+Enter value for e: '23-jan-02'
+Enter value for f: 324223
+Enter value for g: 018
+old   1: insert into Employee_Details values(&a,&b,&c,&d,&e,&f,&g)
+new   1: insert into Employee_Details values(1007,'Mark','Analyst',106,'23-jan-02',324223,018)
+
+1 row created.
+
+SQL> /
+Enter value for a: 1008
+Enter value for b: 'Akai'
+Enter value for c: 'Engineer'
+Enter value for d: 107
+Enter value for e: '17-mar-01'
+Enter value for f: 434341
+Enter value for g: 019
+old   1: insert into Employee_Details values(&a,&b,&c,&d,&e,&f,&g)
+new   1: insert into Employee_Details values(1008,'Akai','Engineer',107,'17-mar-01',434341,019)
+
+1 row created.
+
+
+SQL> /
+Enter value for a: 1009
+Enter value for b: 'Jas'
+Enter value for c: 'Manager'
+Enter value for d: 108
+Enter value for e: '23-apr-01'
+Enter value for f: 453442
+Enter value for g: 020
+old   1: insert into Employee_Details values(&a,&b,&c,&d,&e,&f,&g)
+new   1: insert into Employee_Details values(1009,'Jas','Manager',108,'23-apr-01',453442,020)
+
+1 row created.
+
+SQL> /
+Enter value for a: 1010
+Enter value for b: 'Devi'
+Enter value for c: 'Designer'
+Enter value for d: 109
+Enter value for e: '05-apr-02'
+Enter value for f: 234443
+Enter value for g: 021
+old   1: insert into Employee_Details values(&a,&b,&c,&d,&e,&f,&g)
+new   1: insert into Employee_Details values(1010,'Devi','Designer',109,'05-apr-02',234443,021)
+
+1 row created.
+
+
+4.Find the salaries of all the employees from the “Employee Details” table.
+
+
+SQL> select Salary from Employee_Details;
+
+5.Find the unique designations of the employees from the table.
+
+SQL> select distinct Job_name from Employee_Details;
+
+
+6.Change the salary where the emp_name is “Raj”.
+
+
+SQL> update Employee_Details set salary =600000 WHERE Emp_name = 'Raj';
+
+1 row updated.
