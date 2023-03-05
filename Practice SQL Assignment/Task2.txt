@@ -1,0 +1,66 @@
+--TASK-2:
+
+--Q-9. Write an SQL query to print details of the Workers whose SALARY lies between 100000 and 500000.
+
+SQL> select * from Worker Where salary BETWEEN 100000 AND 500000;
+
+/*
+WORKER_ID    FIRST_NAME           LAST_NAME         SALARY      JOINING_DATE           DEPARTMENT
+
+----------    -----------        ------------      ----------    -------------------    -----------
+   1            Monika             Arora            100000       2014-02-20 09:00:00     HR
+
+   3            Vishal             Singhal          300000       2014-02-20 09:00:00     HR
+
+   4            Amitabh            Singh            500000       2014-02-20 09:00:00     Admin
+
+   5            Vivek              Bhati            500000       2014-06-11 09:00:00     Admin
+
+   6            Vipul              Diwan            200000       2014-06-11 09:00:00     Account
+
+*/
+
+--Q-10. Write an SQL query to print details of the Workers whose FIRST_NAME ends with ‘h’ and contains six alphabets.
+
+SQL> select * from Worker where First_Name like '_____h';
+
+/*
+ WORKER_ID    FIRST_NAME           LAST_NAME         SALARY      JOINING_DATE           DEPARTMENT
+
+----------    -----------        ------------      ----------    -------------------    -----------
+    7           Satish               Kumar           75000       2014-01-20 09:00:00      Account
+
+*/
+
+--Q-11. Write an SQL query to print details of the Workers who have joined in Feb’2014.
+
+SQL> select * from Worker Where Joining_Date LIKE ('%14-02%');
+
+/*
+WORKER_ID    FIRST_NAME           LAST_NAME         SALARY      JOINING_DATE           DEPARTMENT
+
+----------    -----------        ------------      ----------    -------------------    -----------
+   1            Monika               Arora          100000       2014-02-20 09:00:00      HR
+
+   3            Vishal               Singhal        300000       2014-02-20 09:00:00      HR
+
+   4            Amitabh              Singh          500000       2014-02-20 09:00:00      Admin
+*/
+
+--Q-12. Write an SQL query to fetch worker names with salaries >= 50000 and <= 100000.
+
+SQL> select CONCAT(CONCAT(First_Name,' '),Last_Name) As Worker_Name, Salary
+  2  from Worker
+  3  where Worker_ID IN
+  4  (select Worker_ID FROM Worker
+  5  where Salary BETWEEN 50000 AND 100000);
+
+/*
+WORKER_NAME                         SALARY
+--------------------------------  ----------
+Monika Arora                        100000
+Niharika Verma                      80000
+Satish Kumar                        75000
+Geetika Chauhan                     90000
+*/
+

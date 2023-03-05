@@ -1,0 +1,313 @@
+--TASK-1:
+
+/* SQL> connect;
+Enter user-name: system
+Enter password:
+Connected.
+SQL> create table Worker
+  2  (
+  3  Worker_ID number(3),
+  4  First_Name varchar2(20),
+  5  Last_Name varchar2(20),
+  6  Salary number(10),
+  7  Joining_Date DATE,
+  8  Department varchar2(20)
+  9  );
+
+Table created.
+
+SQL> alter session set nls_date_format='YYYY-MM-DD HH24:MI:SS';
+
+Session altered.
+
+SQL> insert into Worker values(&a,&b,&c,&d,&e,&f);
+Enter value for a: 001
+Enter value for b: 'Monika'
+Enter value for c: 'Arora'
+Enter value for d: 100000
+Enter value for e: '2014-02-20 09:00:00'
+Enter value for f: 'HR'
+old   1: insert into Worker values(&a,&b,&c,&d,&e,&f)
+new   1: insert into Worker values(001,'Monika','Arora',100000,'2014-02-20 09:00:00','HR')
+
+1 row created.
+
+SQL> /
+Enter value for a: 002
+Enter value for b: 'Niharika'
+Enter value for c: 'Verma'
+Enter value for d: 80000
+Enter value for e: '2014-06-11 09:00:00'
+Enter value for f: 'Admin'
+old   1: insert into Worker values(&a,&b,&c,&d,&e,&f)
+new   1: insert into Worker values(002,'Niharika','Verma',80000,'2014-06-11 09:00:00','Admin')
+
+1 row created.
+
+SQL> /
+Enter value for a: 003
+Enter value for b: 'Vishal'
+Enter value for c: 'Singhal'
+Enter value for d: 300000
+Enter value for e: '2014-02-20 09:00:00'
+Enter value for f: 'HR'
+old   1: insert into Worker values(&a,&b,&c,&d,&e,&f)
+new   1: insert into Worker values(003,'Vishal','Singhal',300000,'2014-02-20 09:00:00','HR')
+
+1 row created.
+
+SQL> /
+Enter value for a: 004
+Enter value for b: 'Amitabh'
+Enter value for c: 'Singh'
+Enter value for d: 500000
+Enter value for e: '2014-02-20 09:00:00'
+Enter value for f: 'Admin'
+old   1: insert into Worker values(&a,&b,&c,&d,&e,&f)
+new   1: insert into Worker values(004,'Amitabh','Singh',500000,'2014-02-20 09:00:00','Admin')
+
+1 row created.
+
+SQL> /
+Enter value for a: 005
+Enter value for b: 'Vivek'
+Enter value for c: 'Bhati'
+Enter value for d: 500000
+Enter value for e: '2014-06-11 09:00:00'
+Enter value for f: 'Admin'
+old   1: insert into Worker values(&a,&b,&c,&d,&e,&f)
+new   1: insert into Worker values(005,'Vivek','Bhati',500000,'2014-06-11 09:00:00','Admin')
+
+1 row created.
+
+SQL> /
+Enter value for a: 006
+Enter value for b: 'Vipul'
+Enter value for c: 'Diwan'
+Enter value for d: 200000
+Enter value for e: '2014-06-11 09:00:00'
+Enter value for f: 'Account'
+old   1: insert into Worker values(&a,&b,&c,&d,&e,&f)
+new   1: insert into Worker values(006,'Vipul','Diwan',200000,'2014-06-11 09:00:00','Account')
+
+1 row created.
+
+SQL> /
+Enter value for a: 007
+Enter value for b: 'Satish'
+Enter value for c: 'Kumar'
+Enter value for d: 75000
+Enter value for e: '2014-01-20 09:00:00'
+Enter value for f: 'Account'
+old   1: insert into Worker values(&a,&b,&c,&d,&e,&f)
+new   1: insert into Worker values(007,'Satish','Kumar',75000,'2014-01-20 09:00:00','Account')
+
+1 row created.
+
+SQL> /
+Enter value for a: 008
+Enter value for b: 'Geetika'
+Enter value for c: 'Chauhan'
+Enter value for d: 90000
+Enter value for e: '2014-04-11 09:00:00'
+Enter value for f: 'Admin'
+old   1: insert into Worker values(&a,&b,&c,&d,&e,&f)
+new   1: insert into Worker values(008,'Geetika','Chauhan',90000,'2014-04-11 09:00:00','Admin')
+
+1 row created.
+
+SQL> select * from Worker;
+
+WORKER_ID    FIRST_NAME        LAST_NAME         SALARY        JOINING_DATE           DEPARTMENT
+
+----------    -----------     ------------      ----------    -------------------    -----------
+   1           Monika               Arora         100000      2014-02-20 09:00:00      HR
+
+   2           Niharika             Verma         80000       2014-06-11 09:00:00      Admin
+
+   3           Vishal               Singhal       300000      2014-02-20 09:00:00      HR
+   
+   4           Amitabh              Singh         500000      2014-02-20 09:00:00      Admin
+
+   5           Vivek                Bhati         500000      2014-06-11 09:00:00      Admin
+
+   6           Vipul                Diwan         200000      2014-06-11 09:00:00      Account
+
+   7           Satish               Kumar         75000       2014-01-20 09:00:00      Account
+
+   8           Geetika              Chauhan       90000       2014-04-11 09:00:00      Admin
+
+
+8 rows selected.
+
+
+*/
+
+--Q-1. Write an SQL query to fetch “FIRST_NAME” from the Worker table using the alias name <WORKER_NAME>.
+
+SQL> select First_Name as Worker_Name from Worker;
+
+/*
+WORKER_NAME
+--------------------
+Monika
+Niharika
+Vishal
+Amitabh
+Vivek
+Vipul
+Satish
+Geetika
+
+8 rows selected.
+*/
+
+--Q-2. Write an SQL query to find the position of the alphabet (‘a’) in the first name column ‘Amitabh’ from the Worker table.
+
+SQL> select INSTR('Amitabh','a') as Position from Worker where First_Name='Amitabh';
+
+/*
+  POSITION
+----------
+         5
+*/
+
+--Q-3. Write an SQL query to print the FIRST_NAME from the Worker table after replacing ‘a’ with ‘A’.
+
+SQL> select REPLACE(First_Name,’a’,’A’) as First_Name from Worker;
+
+/*
+FIRST_NAME
+--------------------
+MonikA
+NihArikA
+VishAl
+AmitAbh
+Vivek
+Vipul
+SAtish
+GeetikA
+
+8 rows selected.
+*/
+
+--Q-4. Write an SQL query to print all Worker details from the Worker table order by FIRST_NAME Ascending.
+
+
+SQL> select * from Worker ORDER BY First_Name ASC;
+
+/*
+ WORKER_ID    FIRST_NAME           LAST_NAME         SALARY      JOINING_DATE           DEPARTMENT
+
+----------    -----------        ------------      ----------    -------------------    -----------
+   4           Amitabh              Singh           500000       2014-02-20 09:00:00     Admin
+
+   8           Geetika              Chauhan         90000        2014-04-11 09:00:00     Admin
+
+   1           Monika               Arora           100000       2014-02-20 09:00:00     HR
+
+   2           Niharika             Verma           80000        2014-06-11 09:00:00     Admin
+
+   7           Satish               Kumar           75000        2014-01-20 09:00:00     Account
+
+   6           Vipul                Diwan           200000       2014-06-11 09:00:00     Account
+
+   3           Vishal               Singhal         300000       2014-02-20 09:00:00     HR
+
+   5           Vivek                Bhati           500000       2014-06-11 09:00:00     Admin
+
+
+8 rows selected.
+
+*/
+
+--Q-5. Write an SQL query to print all Worker details from the Worker table order by FIRST_NAME Ascending and DEPARTMENT Descending.
+
+
+SQL> select * from Worker ORDER BY First_Name ASC,Department DESC;
+
+/*
+ WORKER_ID    FIRST_NAME           LAST_NAME         SALARY      JOINING_DATE           DEPARTMENT
+
+----------    -----------        ------------      ----------    -------------------    -----------
+    4         Amitabh              Singh             500000      2014-02-20 09:00:00     Admin
+
+    8         Geetika              Chauhan           90000       2014-04-11 09:00:00     Admin
+
+    1         Monika               Arora             100000      2014-02-20 09:00:00     HR
+
+    2         Niharika             Verma             80000       2014-06-11 09:00:00     Admin
+
+    7         Satish               Kumar             75000       2014-01-20 09:00:00     Account
+
+    6         Vipul                Diwan             200000      2014-06-11 09:00:00     Account
+
+    3         Vishal               Singhal           300000      2014-02-20 09:00:00     HR
+
+    5         Vivek                Bhati             500000      2014-06-11 09:00:00     Admin
+
+
+8 rows selected.
+
+*/
+--Q-6. Write an SQL query to print details for Workers with the first name as “Vipul” and “Satish” from the Worker table.
+
+
+SQL> select * from Worker where First_Name IN ('Vipul', 'Satish');
+
+/*
+WORKER_ID    FIRST_NAME           LAST_NAME         SALARY      JOINING_DATE           DEPARTMENT
+
+----------    -----------        ------------      ----------    -------------------   ------------
+   6          Vipul                Diwan            200000       2014-06-11 09:00:00      Account
+
+   7          Satish               Kumar            75000        2014-01-20 09:00:00      Account
+
+*/
+
+--Q-7. Write an SQL query to print details of Workers with DEPARTMENT name as “Admin”
+
+
+SQL> select * from Worker where Department='Admin';
+
+/*
+ WORKER_ID    FIRST_NAME           LAST_NAME         SALARY      JOINING_DATE           DEPARTMENT
+
+----------    -----------        ------------      ----------    -------------------    -----------
+    2        Niharika             Verma             80000        2014-06-11 09:00:00      Admin
+
+    4        Amitabh              Singh             500000       2014-02-20 09:00:00      Admin
+
+    5        Vivek                Bhati             500000       2014-06-11 09:00:00      Admin
+
+    8        Geetika              Chauhan           90000        2014-04-11 09:00:00      Admin
+
+*/
+
+--Q-8. Write an SQL query to print details of the Workers whose FIRST_NAME contains ‘a’
+
+
+SQL> select * from Worker where First_Name like('%a%');
+
+/*
+ WORKER_ID    FIRST_NAME           LAST_NAME         SALARY      JOINING_DATE           DEPARTMENT
+
+----------    -----------        ------------      ----------    -------------------    -----------
+   1           Monika               Arora            100000     2014-02-20 09:00:00       HR
+
+   2           Niharika             Verma            80000      2014-06-11 09:00:00       Admin
+
+   3           Vishal               Singhal          300000     2014-02-20 09:00:00       HR
+
+   4           Amitabh              Singh            500000     2014-02-20 09:00:00       Admin
+
+   7           Satish               Kumar            75000      2014-01-20 09:00:00       Account
+
+   8           Geetika              Chauhan          90000      2014-04-11 09:00:00       Admin
+
+
+6 rows selected.
+
+*/
+
+
