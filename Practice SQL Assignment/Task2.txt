@@ -34,7 +34,7 @@ SQL> select * from Worker where First_Name like '_____h';
 
 --Q-11. Write an SQL query to print details of the Workers who have joined in Feb’2014.
 
-SQL> select * from Worker Where Joining_Date LIKE ('%14-02%');
+SQL> select * from Worker where Joining_Date LIKE ('%14-02%');
 
 /*
 WORKER_ID    FIRST_NAME           LAST_NAME         SALARY      JOINING_DATE           DEPARTMENT
