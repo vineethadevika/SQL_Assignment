@@ -2,7 +2,7 @@
 
 --Q-9. Write an SQL query to print details of the Workers whose SALARY lies between 100000 and 500000.
 
-SQL> select * from Worker Where salary BETWEEN 100000 AND 500000;
+SQL> select * from Worker where salary BETWEEN 100000 AND 500000;
 
 /*
 WORKER_ID    FIRST_NAME           LAST_NAME         SALARY      JOINING_DATE           DEPARTMENT
